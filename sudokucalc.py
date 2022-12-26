@@ -19,14 +19,25 @@ def check_box(grid, row, col, digit):
         if str(a)==str(digit):
             return False
         return True
+def check_all(grid, row, col, digit):
+    if check_row(grid, row, digit)==True:
+        if check_col(grid, col, digit)==True:
+            if check_box(grid, row, col, digit)==True:
+                return True
+    return False
 
 #user input
 def new_grid():
     return [[0 for _ in range(9)] for _ in range(9)]
 def print_grid(grid):
     print("FINAL GRID")
+    print(" ")
     for row in grid:
-        print(row)
+        r=""
+        for digit in row:
+            r+=str(digit)+"  "
+        print(r)
+    print(" ")
 def add_digit(grid, row, col, digit):
     if check_row(grid, row, digit)==True:
         if check_col(grid, col, digit)==True:
@@ -38,3 +49,5 @@ def add_digit(grid, row, col, digit):
             print("column conflict")
     else:
         print("row conflict")
+def test_digit(grid, row, col, digit): #allows you to place invalid digits
+    grid[row-1][col-1]=digit
