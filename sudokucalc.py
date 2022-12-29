@@ -60,8 +60,6 @@ def get_notes(grid, row, col): #gets the notes of one digit
     for note in range (1,10):
         if check_all(grid, row, col, note)==True:
             notes+=str(note)
-        else:
-            notes+="0"
     return notes
 def note_grid(grid): #returns notes grid, uses get_notes
     note_grid=[["" for _ in range(9)] for _ in range(9)]
@@ -69,11 +67,13 @@ def note_grid(grid): #returns notes grid, uses get_notes
         for col in range(9):
             if grid[row][col]==0:
                 note_grid[row][col]=get_notes(grid,row+1,col+1)
+                for i in range(9-len(get_notes(grid,row+1,col+1))):
+                    note_grid[row][col]+=" "
             else:
-                note_grid[row][col]="    "+str(grid[row][col])+"    "
+                note_grid[row][col]="["+str(grid[row][col])+"]      "
     return note_grid
 def print_ngrid(grid): #prints notes grid, uses note_grid
-    print("NOTE GRID")
+    print("NOTES GRID")
     print("")
     ngrid=note_grid(grid)
     for row in ngrid:
