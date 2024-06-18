@@ -1,2 +1,2 @@
-# groundctrl2.sudokucalc
+# groundctrl2.Sudoku-Calc
 "Sudoku Calculator" that takes a grid and can 1. check if a solution/added digit is valid, 2. provide all possible digits to a note in each cell, 3. use those notes to identify hidden subsets (doubles, triples, quadruples, and then singles), and 4. in a recursive function repeatedly apply those and reanalyze until all hidden subset logic is exhausted (oftentimes solving the puzzle entirely). 
